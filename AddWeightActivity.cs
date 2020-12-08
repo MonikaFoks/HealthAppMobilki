@@ -11,51 +11,45 @@ using Android.Views;
 using Android.Widget;
 using HealthAppMobilki.Interface;
 using HealthAppMobilki.Models;
-using HealthAppMobilki.Resources;
 using Refit;
 
 namespace HealthAppMobilki
 {
-    [Activity(Label = "AddPulseActivity")]
-    public class AddPulseActivity : Activity
+    [Activity(Label = "AddWeightActivity")]
+    public class AddWeightActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
-
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.addPulse_layout);
+            SetContentView(Resource.Layout.addWeight_layout);
             IHealthAPI healthAPI;
 
             healthAPI = RestService.For<IHealthAPI>(sessionUser.uriSession);
 
-            var edt_addBpm = FindViewById<EditText>(Resource.Id.txt_addPulse);
-            var btn_cancelPulse = FindViewById<Button>(Resource.Id.btn_cancelPulse);
-            var btn_savePulse = FindViewById<Button>(Resource.Id.btn_savePulse);
+            var edt_addKgs = FindViewById<EditText>(Resource.Id.txt_addWeight);
+            var btn_cancelWeight = FindViewById<Button>(Resource.Id.btn_cancelWeight);
+            var btn_saveWeight = FindViewById<Button>(Resource.Id.btn_saveWeight);
 
-            btn_cancelPulse.Click += (s, e) =>
+            btn_cancelWeight.Click += (s, e) =>
             {
                 Finish();
             };
 
-            btn_savePulse.Click += delegate
+            btn_saveWeight.Click += delegate
             {
-                Pulse pulse = new Pulse()
+                Weight weight = new Weight()
                 {
-                    Bpm = int.Parse(edt_addBpm.Text),
+                    Kgs = int.Parse(edt_addKgs.Text),
                     Date = DateTime.Now,
                     userId = sessionUser.Id
                 };
 
-                healthAPI.PostPulse(pulse);
+                healthAPI.PostWeight(weight);
 
                 Finish();
-                Intent nextActivity = new Intent(this, typeof(PulseActivity));
+                Intent nextActivity = new Intent(this, typeof(WeightActivity));
                 StartActivity(nextActivity);
             };
-
-
-
 
         }
     }

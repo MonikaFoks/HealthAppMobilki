@@ -42,5 +42,16 @@ namespace HealthAppMobilki.Interface
         [Delete("/api/bloodsugars/{id}")]
         Task<DeleteAttribute> DeleteBloodSugar(int id);
 
+        [Post("/api/pulses")]
+        Task<PostAttribute> PostPulse([Body] Pulse pulse);
+
+        [Post("/api/pressures")]
+        Task<PostAttribute> PostPressure([Body] Pressure pressure);
+
+        [Post("/api/weights")]
+        Task<PostAttribute> PostWeight([Body] Weight weight);
+
+        [Post("/api/bloodsugars")]
+        Task<PostAttribute> PostBloodSugar([Body] BloodSugar bs);
     }
 }

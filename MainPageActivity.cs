@@ -27,6 +27,7 @@ namespace HealthAppMobilki
             var btn_pulse = FindViewById<Button>(Resource.Id.btn_pulse);
             var btn_bloodSugar = FindViewById<Button>(Resource.Id.btn_bloodSugar);
             var btn_weight = FindViewById<Button>(Resource.Id.btn_weight);
+            var btn_logout = FindViewById<Button>(Resource.Id.btn_logOut);
 
             btn_pressure.Click += (s, e) =>
             {
@@ -50,6 +51,12 @@ namespace HealthAppMobilki
             {
                 Intent nextActivity = new Intent(this, typeof(WeightActivity));
                 StartActivity(nextActivity);
+            };
+
+            btn_logout.Click += (s, e) =>
+            {
+                Finish();
+                sessionUser.Id = 0;
             };
         }
     }

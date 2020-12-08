@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bcg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="414.9dp"
+        android:layout_gravity="center">
+
+        <EditText
+            android:textAlignment="center"
+            android:textSize="200px"
+            android:layout_marginTop="300px"
+            android:layout_marginLeft="200px"
+            android:inputType="number"
+            android:layout_width="500px"
+            android:layout_height="300px"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/txt_addBS" />
+
+        <TextView
+            android:layout_marginTop="300px"
+            android:textSize="100px"
+            android:gravity="bottom"
+            android:text="mgdL"
+            android:layout_toRightOf="@id/txt_addBS"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="118.5dp"
+            android:layout_height="100dp"
+            android:id="@+id/txt_mgdL" />
+
+    </RelativeLayout>
+
+    <Button
+        android:text="ZAPISZ"
+        android:textSize="150px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_saveBS" />
+
+    <Button
+        
+        android:text="ANULUJ"
+        android:textSize="150px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_cancelBS" />
+
+</LinearLayout>

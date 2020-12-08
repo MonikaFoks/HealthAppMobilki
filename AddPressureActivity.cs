@@ -9,7 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using HealthAppMobilki.Interface;
 using HealthAppMobilki.Models;
+using Refit;
 
 namespace HealthAppMobilki
 {
@@ -20,7 +22,9 @@ namespace HealthAppMobilki
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.addPressure_layout);
+            IHealthAPI healthAPI;
 
+            healthAPI = RestService.For<IHealthAPI>(sessionUser.uriSession);
 
             var edt_addSyst = FindViewById<EditText>(Resource.Id.txt_addPressure1);
             var edt_addDiast = FindViewById<EditText>(Resource.Id.txt_addPressure2);
@@ -38,10 +42,12 @@ namespace HealthAppMobilki
                 {
                     Systolic = int.Parse(edt_addSyst.Text),
                     Diastolic = int.Parse(edt_addDiast.Text),
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
+                    userId = sessionUser.Id
 
                 };
 
+                healthAPI.PostPressure(pressure);
                 Finish();
                 Intent nextActivity = new Intent(this, typeof(PressureActivity));
                 StartActivity(nextActivity);

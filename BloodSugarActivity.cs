@@ -90,7 +90,7 @@ namespace HealthAppMobilki
 
             btn_addBS.Click += (s, e) =>
             {
-                Intent nextActivity = new Intent(this, typeof(AddPulseActivity));
+                Intent nextActivity = new Intent(this, typeof(AddBSActivity));
                 Finish();
                 StartActivity(nextActivity);
             };

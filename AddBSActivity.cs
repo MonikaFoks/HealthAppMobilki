@@ -11,51 +11,45 @@ using Android.Views;
 using Android.Widget;
 using HealthAppMobilki.Interface;
 using HealthAppMobilki.Models;
-using HealthAppMobilki.Resources;
 using Refit;
 
 namespace HealthAppMobilki
 {
-    [Activity(Label = "AddPulseActivity")]
-    public class AddPulseActivity : Activity
+    [Activity(Label = "AddBSActivity")]
+    public class AddBSActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
-
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.addPulse_layout);
+            SetContentView(Resource.Layout.addBS_layout);
             IHealthAPI healthAPI;
 
             healthAPI = RestService.For<IHealthAPI>(sessionUser.uriSession);
 
-            var edt_addBpm = FindViewById<EditText>(Resource.Id.txt_addPulse);
-            var btn_cancelPulse = FindViewById<Button>(Resource.Id.btn_cancelPulse);
-            var btn_savePulse = FindViewById<Button>(Resource.Id.btn_savePulse);
+            var edt_addBS = FindViewById<EditText>(Resource.Id.txt_addBS);
+            var btn_cancelBS = FindViewById<Button>(Resource.Id.btn_cancelBS);
+            var btn_saveBS = FindViewById<Button>(Resource.Id.btn_saveBS);
 
-            btn_cancelPulse.Click += (s, e) =>
+            btn_cancelBS.Click += (s, e) =>
             {
                 Finish();
             };
 
-            btn_savePulse.Click += delegate
+            btn_saveBS.Click += delegate
             {
-                Pulse pulse = new Pulse()
+                BloodSugar bs = new BloodSugar()
                 {
-                    Bpm = int.Parse(edt_addBpm.Text),
+                    mgdL = int.Parse(edt_addBS.Text),
                     Date = DateTime.Now,
                     userId = sessionUser.Id
                 };
 
-                healthAPI.PostPulse(pulse);
+                healthAPI.PostBloodSugar(bs);
 
                 Finish();
-                Intent nextActivity = new Intent(this, typeof(PulseActivity));
+                Intent nextActivity = new Intent(this, typeof(BloodSugarActivity));
                 StartActivity(nextActivity);
             };
-
-
-
 
         }
     }

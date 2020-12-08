@@ -65,8 +65,10 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBSActivity.cs" />
     <Compile Include="AddPressureActivity.cs" />
     <Compile Include="AddPulseActivity.cs" />
+    <Compile Include="AddWeightActivity.cs" />
     <Compile Include="BloodSugarActivity.cs" />
     <Compile Include="Interface\IHealthAPI.cs" />
     <Compile Include="MainActivity.cs" />
@@ -210,6 +212,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\listWeightViewData_template.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\addWeight_layout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\addBS_layout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
