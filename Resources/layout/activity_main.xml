@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@mipmap/bcg">
+        
+        <Button
+            android:fontFamily="@Font"
+            android:text="Ciśnienie"
+            android:textSize="100px"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="75dp"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/btn_pressure" />
+        <Button
+            android:text="Tętno"
+            android:textSize="100px"
+            android:layout_marginLeft="30dp"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="25px"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/btn_pulse" />
+        <Button
+            android:text="Cukier we krwi"
+            android:textSize="100px"
+            android:layout_marginLeft="30dp"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="25px"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/btn_bloodSugar" />
+        <Button
+            android:text="Waga"
+            android:textSize="100px"
+            android:layout_marginLeft="30dp"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="25px"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/btn_weight" />
+
+
+    </LinearLayout>/>
+</RelativeLayout>
